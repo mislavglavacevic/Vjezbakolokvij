@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mjerenje temperature</title>
+  <meta name="description" content="Mjerenje temperature">
+  <meta name="author" content="Mislav Glavačević">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Mjerenje temperature</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <form id="traziForma" class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" name="uvjet" id=uvjet placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="trazi">Search</button> | 
+          <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="noviOperater">Novo mjerenje</button>
+        </form>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <main class="col-sm-9 ml-sm-auto col-md-12 pt-3" role="main">
+          <div class="table-responsive">
+          	
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Lokacija</th>
+                  <th>Datum mjerenja</th>
+                  <th>Temperatura</th>
+                  <th>Osoba</th>
+                  <th>Akcija</th>
+                </tr>
+              </thead>
+              <tbody id="podaci">
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div id="modal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Unesite podatke</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form id="forma">
+	        	<div class="form-group">
+				    <label for="lokacija">Lokacija</label>
+				    <input type="text" class="form-control" id="lokacija" name="lokacija" placeholder="Unesite lokaciju">
+				 </div>
+				 <div class="form-group">
+				    <label for="datum_mjerenja">Datum mjerenja</label>
+				    <input type="text" class="form-control" id="datum_mjerenja" name="datum_mjerenja" placeholder="Unesite datum mjerenja">
+				 </div>
+				 <div class="form-group">
+				    <label for="temperatura">Temperatura</label>
+				    <input type="text" class="form-control" id="temperatura" name="temperatura" placeholder="Unesite temperaturu">
+				 </div>
+				 
+				 <div class="form-group">
+				    <label for="osoba">Osoba</label>
+				    <input type="text" class="form-control" id="osoba" name="osoba" placeholder="Unesite osobu">
+				 </div>
+	        	<input type="hidden" id="sifra" name="sifra" />
+	        	<input type="submit" id="spremi" class="btn btn-default" value="Spremi" />
+	        </form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.2/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script>
+  	//lokalno
+  	var putanjaAPI="../api";
+  	//server
+  	//var putanjaAPI="/P11617/tjakopec/P3/Programiranje3API";
+  </script>
+  <script src="js/skripta.js"></script>
+</body>
+</html>
